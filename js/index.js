@@ -1,24 +1,19 @@
 var db;
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
-function onDeviceReady() {
-    navigator.notification.vibrate(2500);
-    //db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
-    //db.transaction(createDb, txError, txSuccess);
-    }
-
+document.addEventListener("deviceready", function(){
+   navigator.notification.vibrate(1000);
+   navigator.notification.alert("Hello");
+   navigator.notification.beep(1);   
+}, false)
 
 $('#register').bind('pageinit', function(event) {
 
 });
 
-function alertDismissed() {
-    // hacer algo
-}
-
 function registerUser()
-{
+{    
+    //db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
+    //db.transaction(createDb, txError, txSuccess);
 }
 
 function createDb(tx) {
