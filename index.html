@@ -10,18 +10,26 @@
         <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
         <script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
         
-        <title>Hello World</title>
+        <title>inFact App</title>
     </head>
     <body>
-        <div id="reposHome" data-role="page">
+        <div id="register" data-role="page">
             <div data-role="header" data-position="fixed">
-                <h1>GitHub Search</h1>
+                <h1>inFact</h1>
             </div>
-            <div data-role="content">
-                <ul id="allRepos" data-role="listview"  data-filter="true">
-                </ul>
+            <br>
+            <div id="form">
+                Nombre:<input type="text" id="nombre" placeholder="Nombre"><br>
+                Apellidos:<input type="text" id="apellidos" placeholder="Apellidos"><br> 
+                DNI:<input type="text" maxlength="9"  id="dni" placeholder="DNI"><br>
+                Password:<input type="password" maxlength="8" id="pass" placeholder="Password"><br>
+                <fieldset data-role="controlgroup">
+	           <legend>Agree to the terms:</legend>
+	           <input type="checkbox" id="checkbox-agree" class="custom" />
+	           <label for="checkbox-agree">I agree</label>
+                </fieldset>
+                <a onclick="registerUser()" data-role="button">Link button</a> 
             </div>
-        </div>
         
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
