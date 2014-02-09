@@ -18,13 +18,7 @@ function alertDismissed() {
 
 function registerUser()
 {
-   navigator.notification.alert(
-    'Eres el ganador!',     // mensaje (message)
-    alertDismissed,         // función 'callback' (alertCallback)
-    'Game Over',            // titulo (title)
-    'Cerrar'                // nombre del botón (buttonName)
-);
-
+    navigator.notification.alert("Hi");
 }
 
 function createDb(tx) {
