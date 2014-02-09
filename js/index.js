@@ -1,11 +1,11 @@
 var db;
-/*
+
 document.addEventListener("deviceready", function(){
-   navigator.notification.vibrate(1000);
+   //navigator.notification.vibrate(1000);
    navigator.notification.alert("Hello");
-   navigator.notification.beep(1);   
+   //navigator.notification.beep(1);   
 }, false)
-*/
+
 /*$('#register').bind('pageinit', function(event) {
 
 });*/
