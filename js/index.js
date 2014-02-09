@@ -1,12 +1,13 @@
 var db;
-/*
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-    db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
-    db.transaction(createDb, txError, txSuccess);
+    navigator.notification.alert("Hi");
+    //db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
+    //db.transaction(createDb, txError, txSuccess);
     }
-*/
+
 
 $('#register').bind('pageinit', function(event) {
 
@@ -18,7 +19,6 @@ function alertDismissed() {
 
 function registerUser()
 {
-    navigator.notification.alert("Hi");
 }
 
 function createDb(tx) {
