@@ -12,6 +12,7 @@ document.addEventListener("deviceready", function(){
 
 function registerUser()
 {    
+    $('#nombre-id').attr("placeholder","holla");
     //db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
     //db.transaction(createDb, txError, txSuccess);
 }
