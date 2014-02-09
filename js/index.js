@@ -6,9 +6,9 @@ document.addEventListener("deviceready", function(){
    navigator.notification.beep(1);   
 }, false)
 
-$('#register').bind('pageinit', function(event) {
+/*$('#register').bind('pageinit', function(event) {
 
-});
+});*/
 
 function registerUser()
 {    
