@@ -11,26 +11,24 @@ document.addEventListener("deviceready", function(){
 });*/
 
 function registerUser()
-{    
-    db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
-    db.transaction(createDb, txError, txSuccess);
+{   
+    db = window.openDatabase("inFactDB","0.1","inFact DB", 100 * 1024);
+    db.transaction(createDb, txError, txSuccess);    
 }
 
 function createDb(tx) {
-    tx.executeSql('DROP TABLE IF EXISTS usuarios');
-    tx.executeSql('CREATE TABLE usuarios (nombre)');
-    tx.executeSql('INSERT INTO usuarios (nombre) VALUES ("hector")');
-    tx.executeSql('SELECT * FROM usuarios',[], querySuccess, txError);
-}
-
-function querySuccess(tx, results) {
-    if(results.rows.length > 0){
-        for (var i=0; i<results.rows.length; i++){
-            $('#nombre-id').attr("placeholder",results.rows.item(i).data);
-        }
+    tx.executeSql('DROP TABLE IF EXISTS Users');
+    tx.executeSql('create table Users(name)');
+    tx.executeSql('insert into Users(name) values (?)',
+              ["Hector"]);
+    tx.executeSql('select * from Users', [], function(tx, rs) {
+    for (var i = 0; i < rs.rows.length; i++) {
+        var p = rs.rows.item(i);
+        $('#nombre-id').attr("placeholder",p.name);
+        console.log(p.name);
     }
+}, txError);
 }
-
 
 function txError(error) {
     console.log(error);
