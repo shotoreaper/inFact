@@ -3,7 +3,7 @@ var db;
 document.addEventListener("deviceready", onDeviceReady, false);
 
 function onDeviceReady() {
-    navigator.notification.alert("Hi");
+    navigator.notification.vibrate(2500);
     //db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
     //db.transaction(createDb, txError, txSuccess);
     }
