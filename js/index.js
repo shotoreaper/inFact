@@ -1,8 +1,8 @@
 var db;
 
 $('#register').bind('pageinit', function(event) {
-    //db = window.openDatabase("inFactDB","0.1","inFact DB", 1000);
-    //db.transaction(createDb, txError, txSuccess);
+   /* db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
+    db.transaction(createDb, txError, txSuccess);*/
 });
 
 function registerUser()
