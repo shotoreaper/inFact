@@ -1,18 +1,27 @@
 var db;
+/*
+document.addEventListener("deviceready", onDeviceReady, false);
+
+function onDeviceReady() {
+    db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
+    db.transaction(createDb, txError, txSuccess);
+    }
+*/
 
 $('#register').bind('pageinit', function(event) {
-   /* db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
-    db.transaction(createDb, txError, txSuccess);*/
+
 });
 
 function registerUser()
 {
-    
+   alert("hola!"); 
 }
 
 function createDb(tx) {
-    tx.executeSql("DROP TABLE IF EXISTS usuarios");
-    tx.executeSql("CREATE TABLE usuarios(nombre)");
+    tx.executeSql('DROP TABLE IF EXISTS usuarios');
+    tx.executeSql('CREATE TABLE usuarios (nombre)');
+    tx.executeSql('INSERT INTO usuarios (nombre) VALUES ("hector")');
+    tx.executeSql('INSERT INTO usuarios (nombre) VALUES ("hector")');
 }
 
 function txError(error) {
