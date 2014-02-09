@@ -12,9 +12,19 @@ $('#register').bind('pageinit', function(event) {
 
 });
 
+function alertDismissed() {
+    // hacer algo
+}
+
 function registerUser()
 {
-   alert("hola!"); 
+   navigator.notification.alert(
+    'Eres el ganador!',     // mensaje (message)
+    alertDismissed,         // función 'callback' (alertCallback)
+    'Game Over',            // titulo (title)
+    'Cerrar'                // nombre del botón (buttonName)
+);
+
 }
 
 function createDb(tx) {
