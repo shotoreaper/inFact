@@ -12,17 +12,25 @@ document.addEventListener("deviceready", function(){
 
 function registerUser()
 {    
-    $('#nombre-id').attr("placeholder","holla");
-    //db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
-    //db.transaction(createDb, txError, txSuccess);
+    db = window.openDatabase("inFactDB","0.1","inFact DB", 1000000);
+    db.transaction(createDb, txError, txSuccess);
 }
 
 function createDb(tx) {
     tx.executeSql('DROP TABLE IF EXISTS usuarios');
     tx.executeSql('CREATE TABLE usuarios (nombre)');
     tx.executeSql('INSERT INTO usuarios (nombre) VALUES ("hector")');
-    tx.executeSql('INSERT INTO usuarios (nombre) VALUES ("hector")');
+    tx.executeSql('SELECT * FROM usuarios',[], querySuccess, txError);
 }
+
+function querySuccess(tx, results) {
+    if(results.rows.length > 0){
+        for (var i=0; i<results.rows.length; i++){
+            $('#nombre-id').attr("placeholder",results.rows.item(i).data);
+        }
+    }
+}
+
 
 function txError(error) {
     console.log(error);
