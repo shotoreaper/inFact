@@ -10,26 +10,21 @@
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
         <script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" src="js/dB.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <title>inFact App</title>
     </head>
     <body>
-        <div id="register" data-role="page">
-            <div data-role="header" data-position="fixed">
+        <div id="login" data-role="page">
+            <div data-role="header" data-position="fixed" data-add-back-btn="true">
                 <h1>inFact</h1>
             </div>
             <br>
-            <div id="form">
-                <label for="nombre-id">Nombre:</label>
-                <input type="text" name="nombre" id="nombre-id" value="" placeholder="Nombre" />
-                <label for="apellidos-id">Apellidos:</label>
-                <input type="text" name="apellidos" id="apellidos-id" value="" placeholder="Apellidos" />                
-                <fieldset data-role="controlgroup">
-	           <legend>Agree to the terms:</legend>
-	           <input type="checkbox" id="checkbox-agree" class="custom" />
-	           <label for="checkbox-agree">I agree</label>
-                </fieldset>
-                <a onclick="registerUser()" data-role="button">Link button</a> 
+            <div id="login-form">
+                <label for="pass-id">Password:</label>
+                <input type="password" name="pass" id="pass-id" value="" placeholder="Password" maxlength="9" />                
+                <a onclick="registerUser()" data-role="button">Login</a>
+                <a href="html/menu.html" data-role="button">He olvidado mi contraseña</a> 
             </div>
         
 

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+    <script type="text/javascript" src="../phonegap.js"></script>
+    <script type="text/javascript" src="../js/dB.js"></script>
+    <script type="text/javascript" src="../js/register.js"></script>
+</head>
+    <body>
+        <div id="register" data-role="page">
+            <div data-role="header"  data-position="fixed">
+                <h1>inFact</h1>                
+            </div>
+            <br>
+            <div id="register-form">
+                <label for="nombre-id">Nombre:</label>
+                <input type="text" name="nombre" id="nombre-id" value="" placeholder="Nombre" />
+                <label id="nombre-error" class="error"></label><br>
+                
+                <label for="apellidos-id">Apellidos:</label>
+                <input type="text" name="apellidos" id="apellidos-id" value="" placeholder="Apellidos" />                
+                <label id="apellidos-error" class="error"></label><br>
+                
+                <label for="dni-id">DNI:</label>
+                <input type="text" name="dni" id="dni-id" value="" placeholder="DNI" maxlength="9"/>
+                <label id="dni-error" class="error"></label><br>
+                
+                <label for="email-id">Email:</label>
+                <input type="email" name="dni" id="email-id" value="" placeholder="Email"/>
+                <label id="email-error" class="error"></label><br>
+                
+                <label for="pass-id">Password:</label>
+                <input type="password" name="pass" id="pass-id" value="" placeholder="Password"/>
+                                
+                <label for="rpass-id">Repite Password:</label>
+                <input type="password" name="rpass" id="rpass-id" value="" placeholder="Password"/>
+                <label id="pass-error" class="error"></label><br>
+                
+                <label for="iban-id">IBAN:</label>
+                <input type="text" name="iban" id="iban-id" value="" placeholder="IBAN" maxlength="24"/>
+                <label id="iban-error" class="error"></label><br>
+                
+                <label for="tlfno-id">Teléfono:</label>
+                <input type="tel" name="tlfno" id="tlfno-id" value="" placeholder="Teléfono" maxlength="9"/>
+                <label id="tel-error" class="error"></label><br>
+                
+                <label for="calle-id">Domicilio:</label>
+                <input type="text" name="calle" id="calle-id" value="" placeholder="Domicilio" />
+                <label id="calle-error" class="error"></label><br>
+                
+                <label for="cp-id">Código Postal:</label>
+                <input type="text" name="cp" id="cp-id" value="" placeholder="Código Postal" maxlength="5" />
+                <label id="cp-error" class="error"></label><br>
+                
+                <label for="localidad-id">Localidad:</label>
+                <input type="text" name="localidad" id="localidad-id" value="" placeholder="Localidad" />
+                <label id="localidad-error" class="error"></label><br>
+                
+                <div data-role="fieldcontain">
+                    <label for="select-choice-1">Provincia</label><br>
+                    <select name="select-choice-1" id="select-choice-1"> 
+                        <option value="default">Selecciona una provincia</option>
+                        <option value="asturias">Asturias</option>
+                        <option value="cantabria">Cantabria</option>
+                        <option value="madrid">Madrid</option>
+                        <option value="barcelona">Barcelona</option>
+                    </select>
+                </div>
+                <label id="provincia-error" class="error"></label><br>
+                
+                <fieldset data-role="controlgroup">
+	           <legend>Agree to the <a href="html/terms.html">terms:</a></legend>
+	           <input type="checkbox" id="checkbox-agree" class="custom" />
+	           <label for="checkbox-agree">I agree</label>
+                </fieldset>
+                
+                <a id="registerbutton" onclick="registerUser()"  data-role="button">Register</a>
+                <br>
+                <label id="agree-error" class="error"></label>
+            </div>
+        
+
+    </body>
+</html>

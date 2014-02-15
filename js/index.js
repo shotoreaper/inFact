@@ -1,42 +1,40 @@
-var db;
-
-document.addEventListener("deviceready", function(){
    //navigator.notification.vibrate(1000);
-   navigator.notification.alert("Hello");
-   //navigator.notification.beep(1);   
-}, false)
+   //navigator.notification.alert("Hello");
+   //navigator.notification.beep(1); 
 
-/*$('#register').bind('pageinit', function(event) {
+document.addEventListener("deviceready", onDeviceReady(), false);
 
-});*/
-
-function registerUser()
-{   
-    db = window.openDatabase("inFactDB","0.1","inFact DB", 100 * 1024);
-    db.transaction(createDb, txError, txSuccess);    
+function onDeviceReady()
+{
+    isFirstLaunch();   
+    openDb("infactdb","0.1","inFactDB",1000000);
+    selectDb("Usuario");
 }
 
-function createDb(tx) {
-    tx.executeSql('DROP TABLE IF EXISTS Users');
-    tx.executeSql('create table Users(name)');
-    tx.executeSql('insert into Users(name) values (?)',
-              ["Hector"]);
-    tx.executeSql('select * from Users', [], function(tx, rs) {
-    for (var i = 0; i < rs.rows.length; i++) {
-        var p = rs.rows.item(i);
-        $('#nombre-id').attr("placeholder",p.name);
-        console.log(p.name);
+function isFirstLaunch()
+{
+    // Comprobamos si esta la clave de primer registro
+    //localStorage.clear();
+    var firstlaunch = window.localStorage.getItem('launchCount');    
+    if(firstlaunch)
+    {
+        // Ya la hemos iniciado antes
+        console.log("Ya hemos iniciado la app antes");        
+    }else{
+        // Es la primera vez que iniciamos la app
+        console.log("Primera vez que iniciamos");
+        window.location = "html/register.html";
     }
-}, txError);
+    
 }
 
-function txError(error) {
-    console.log(error);
-    console.log("Database error: " + error);
-}
-
-function txSuccess() {
-    console.log("Success");
+function loginUser()
+{
+    //Comprobamos que la contraseña introducida es correcta
+    
+    //Si lo es: vamos a menu.html
+    
+    //Si no lo es: mostramos label "Error"
 }
 
 function getUrlVars() {

@@ -116,3 +116,8 @@ h1 {
 input {
     -webkit-user-select: auto !important;
 }
+
+.error
+{
+    color: #ff0000;   
+}
