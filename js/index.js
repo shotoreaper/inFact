@@ -8,7 +8,7 @@ function onDeviceReady()
 {
     isFirstLaunch();   
     openDb("infactdb","0.1","inFactDB",1000000);
-    selectDb("Usuario");
+    selectDb("Usuario","nombre","");
 }
 
 function isFirstLaunch()

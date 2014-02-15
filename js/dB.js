@@ -35,19 +35,20 @@ function executeSQL(sql)
                                 }, txError, txSuccess);
 }
 
-function selectDb(tabla)
+function selectDb(tabla,campos,condiciones)
 {
-    var sqltxt="SELECT * FROM " + tabla;
-    db.transaction(createDb,txError,txSuccess);
+    var sqltxt="SELECT " + campos  + " FROM " + tabla + " " + condiciones;
+    console.log(sqltxt);
+    db.transaction(function(tx){tx.executeSql(sqltxt,[],resultsSelectDb)},txError,txSuccess);
 }
-                   
-function createDb(tx)
+
+function resultsSelectDb(tx,rs)
 {
-    tx.executeSql('select * from Usuario', [], function(tx, rs) {
-    for (var i = 0; i < rs.rows.length; i++) {
+    for (var i = 0; i < rs.rows.length; i++) 
+    {
         var p = rs.rows.item(i);
-        navigator.notification.alert(p.nombre);
-    }}, txError);
+        $('#pass-id').attr("placeholder",p.nombre);
+    }
 }
 
 function txError(error) {
