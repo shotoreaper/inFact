@@ -1,8 +1,3 @@
-$(document).delegate('#modify','pageshow', function() {
-    console.log("enter");
-    //db.transaction(loadFavesDb, txError, txSuccess);
-});
-
 function loadData() 
 {
     console.log("entro");
@@ -85,7 +80,7 @@ function checkFields()
     
     if($('#tlfno-id').val().length < 6) 
     {
-        $("#tlfno-error").text("Introduce un teléfono correcto");    
+        $("#tel-error").text("Introduce un teléfono correcto");    
         bool = false;
     }
     

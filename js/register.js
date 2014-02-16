@@ -88,7 +88,7 @@ function checkFields()
     
     if($('#tlfno-id').val().length < 6) 
     {
-        $("#tlfno-error").text("Introduce un teléfono correcto");    
+        $("#tel-error").text("Introduce un teléfono correcto");    
         bool = false;
     }
     
