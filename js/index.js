@@ -4,12 +4,18 @@
 
 var samepass = false;
 
-document.addEventListener("deviceready", onDeviceReady(), false);
-
+//document.addEventListener("deviceready", onDeviceReady(), false);
+/*
 function onDeviceReady()
 {
+    //loadPage("html/login/index.html");
     isFirstLaunch();   
-}
+}*/
+
+$( document ).ready(function() {
+  // Handler for .ready() called.
+    isFirstLaunch();   
+});
 
 function isFirstLaunch()
 {
@@ -19,11 +25,13 @@ function isFirstLaunch()
     if(firstlaunch)
     {
         // Ya la hemos iniciado antes
-        console.log("Ya hemos iniciado la app antes");                
+        console.log("Ya hemos iniciado la app antes");
+        // Cargamos en login.html
     }else{
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
-        window.location = "html/register.html";
+        $('#container').load('html/login/index.html',function(){ $('#container').trigger('create'); });
+        //window.location = "html/register.html";
         //$.mobile.changePage("html/register.html");
     }
     

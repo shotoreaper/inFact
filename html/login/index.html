@@ -1,0 +1,12 @@
+<div data-role="header" data-theme="b"  data-position="fixed" data-add-back-btn="true">
+    <a onclick="exitFromApp()" data-icon="delete">Salir</a>
+    <h1>inFact</h1>
+</div>
+<br>
+<div id="login-form">
+    <label for="pass-id">Password:</label>
+    <input type="password" name="pass" id="pass-id" value="" placeholder="Password" maxlength="9" />                
+    <a onclick="loginUser()" data-role="button">Login</a>
+    <a onclick="window.location = 'html/menu.html';" data-role="button">He olvidado mi contraseña</a> 
+    <label id="login-error" class="error"></label>
+</div>
