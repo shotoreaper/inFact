@@ -1,49 +1,52 @@
-function registerUser()
+$(document).delegate('#modify','pageshow', function() {
+    console.log("enter");
+    //db.transaction(loadFavesDb, txError, txSuccess);
+});
+
+function loadData() 
+{
+    console.log("entro");
+    openDb("infactdb","0.1","inFactDB",1000000);
+    db.transaction(function(tx){tx.executeSql("SELECT * FROM Usuario",[],setData)},txError,txSuccess);
+}
+
+function setData(tx,rs)
+{    
+    $('#nombre-id').val(rs.rows.item(0).nombre);
+    $('#apellidos-id').val(rs.rows.item(0).apellidos);
+    $('#dni-id').val(rs.rows.item(0).dni);
+    $('#email-id').val(rs.rows.item(0).email);  
+    $('#iban-id').val(rs.rows.item(0).iban);
+    $('#tlfno-id').val(rs.rows.item(0).telefono);
+    $('#calle-id').val(rs.rows.item(0).calle);
+    $('#cp-id').val(rs.rows.item(0).cp);
+    $('#localidad-id').val(rs.rows.item(0).localidad);
+    $('#select-choice-1').val(rs.rows.item(0).provincia);
+    $('#select-choice-1').trigger('change');
+}
+
+function saveUser()
 {           
     // Si hemos introducido los campos correctamente
     if(checkFields())
     {
-        // Si estamos de acuerdo con los terminos procedemos    
-        var checkbox = $("#checkbox-agree");
-        if(checkbox.is(":checked"))
-        {
-            // Comprobamos que todos los campos sean correctos
-            openDb("infactdb","0.1","inFactDB",1000000);
-            
-            // Borramos las tablas por si exiten ya
-            var tables = ['Usuarios','Clientes','IVA','IRPF'];
-            eraseDb(tables);
-            
-            // Creamos la tabla usuario
-            createTable("Usuario","nombre,apellidos,dni,email,pass,iban,telefono,calle,cp,localidad,provincia");
-            
-            // Insertamos al usuario
-            var valores = '';
-            $("#register-form").find(':input').each(function() {
-             if(this.type != 'checkbox')
+        // Insertamos al usuario
+        var valores = '';
+        $("#modify-form").find(':input').each(function() {
+         if(this.type != 'checkbox')
+            {
+                valores = valores + "'" + this.value + "'";
+                if(this.type != 'select-one')
                 {
-                    if(this.id != 'rpass-id')
-                    {
-                        valores = valores + "'" + this.value + "'";
-                        if(this.type != 'select-one')
-                        {
-                            valores = valores + ',' ;
-                        }
-                    }
-                    
+                    valores = valores + ',' ;
                 }
-            });
-            insertDb("Usuario","nombre,apellidos,dni,email,pass,iban,telefono,calle,cp,localidad,provincia",valores);
-            // Insertamos la clave local de primer inicio
-            window.localStorage.setItem('launchCount',1);            
-            // Esperamos 2 segundos y redireccionamos a los dos segundos
-            setTimeout( function(){$.mobile.changePage("menu.html");},2000);
             }
-        }else{
-            $("#agree-error").text("Para continuar debes aceptar los términos");
-            window.scrollTo(0,500);
+        });
+        updateDb("Usuario","nombre,apellidos,dni,email,iban,telefono,calle,cp,localidad,provincia",valores);        
+        // Esperamos 2 segundos y redireccionamos a los dos segundos
+        setTimeout( function(){ $.mobile.changePage("index.html");},2000);
         }
-    }
+}
 
 
 function checkFields()
@@ -71,12 +74,6 @@ function checkFields()
     if($('#email-id').val().length < 3) 
     {
         $("#email-error").text("Introduce un email correcto");
-        bool = false;
-    }
-    
-    if($('#pass-id').val().length < 1  || $('#rpass-id').val().length < 1 || $('#pass-id').val() != $('#rpass-id').val()) 
-    {
-        $("#pass-error").text("Introduce una contraseña correcta");    
         bool = false;
     }
     

@@ -27,29 +27,31 @@ function insertDb(tabla, campos, valores)
     
 }
 
+function updateDb(tabla, campos, valores)
+{
+    var cam_split = campos.split(',');
+    var val_split = valores.split(',');
+    var sqltxt = "UPDATE " + tabla + " SET ";
+    for(var i = 0; i < cam_split.length; i++)
+    {
+        sqltxt = sqltxt + cam_split[i] + "=" + val_split[i];
+        if(i<cam_split.length-1)
+        {
+            sqltxt = sqltxt + ",";   
+        }
+    }
+    executeSQL(sqltxt);
+    
+}
+
 function executeSQL(sql)
 {
-    console.log(sql);
     db.transaction(function(tx){
                                 tx.executeSql(sql)
                                 }, txError, txSuccess);
 }
 
-function selectDb(tabla,campos,condiciones)
-{
-    var sqltxt="SELECT " + campos  + " FROM " + tabla + " " + condiciones;
-    console.log(sqltxt);
-    db.transaction(function(tx){tx.executeSql(sqltxt,[],resultsSelectDb)},txError,txSuccess);
-}
 
-function resultsSelectDb(tx,rs)
-{
-    for (var i = 0; i < rs.rows.length; i++) 
-    {
-        var p = rs.rows.item(i);
-        $('#pass-id').attr("placeholder",p.nombre);
-    }
-}
 
 function txError(error) {
     console.log(error);

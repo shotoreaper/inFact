@@ -2,13 +2,13 @@
    //navigator.notification.alert("Hello");
    //navigator.notification.beep(1); 
 
+var samepass = false;
+
 document.addEventListener("deviceready", onDeviceReady(), false);
 
 function onDeviceReady()
 {
     isFirstLaunch();   
-    openDb("infactdb","0.1","inFactDB",1000000);
-    selectDb("Usuario","nombre","");
 }
 
 function isFirstLaunch()
@@ -23,19 +23,52 @@ function isFirstLaunch()
     }else{
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");
-        window.location = "html/register.html";
+        $.mobile.changePage("html/register.html");
     }
     
 }
 
 function loginUser()
 {
+    // Conectamos a la bbdd
+    openDb("infactdb","0.1","inFactDB",1000000);
     //Comprobamos que la contraseña introducida es correcta
+    compararPass($('#pass-id').val());
     
-    //Si lo es: vamos a menu.html
-    
-    //Si no lo es: mostramos label "Error"
+    setTimeout(function()
+               {
+                   if(samepass)
+                   {
+                       //Si lo es: vamos a menu.html
+                       window.location = "html/menu.html";
+                   }else{
+                       //Si no lo es: mostramos label "Error"
+                       $("#login-error").text("La contraseña que has introducido no es correcta");    
+                       $("#pass-id").val("");    
+                   }
+               },100);
 }
+
+function compararPass(passIntro)
+{
+    var passDB;
+    db.transaction(function(tx){tx.executeSql("SELECT pass FROM Usuario",[],function(tx,rs){passDB = rs.rows.item(0).pass;})},txError,txSuccess);
+    setTimeout(function()
+               {
+                   if(passIntro==passDB)
+                   {
+                        samepass = true;  
+                   }else{
+                       
+                        samepass = false;   
+                   }
+               },100);
+}
+
+ function exitFromApp()
+ {
+    navigator.app.exitApp();
+ }
 
 function getUrlVars() {
     var vars = [], hash;

@@ -78,6 +78,22 @@ h1 {
     text-align:center;
 }
 
+h3 {
+    color:#95ceb6;
+    font-size:20px;
+    font-weight:normal;
+    margin:0px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+p{
+    color: #828282;
+    text-transform: none;
+    font-weight: normal;
+}
+
 .status {
     background-color:#333333;
     border-radius:4px;
@@ -116,6 +132,19 @@ h1 {
 input {
     -webkit-user-select: auto !important;
 }
+
+.custom-navbar ul li a {
+    background-color:#000000;
+    /*background: #67497a; /* Old browsers */
+    /*background: linear-gradient( #7ea2ba,#527d99 ) repeat scroll 0 0 #67497a !important;
+    /*background: -moz-linear-gradient( #7ea2ba,#527d99 ) repeat scroll 0 0 #67497a !important; /* FF3.6+ */
+    /*background: -webkit-linear-gradient( #95ceb6,#d7ebbe ) repeat scroll 0 0 #67497a !important; /* Chrome10+,Safari5.1+ */
+    /*background: -o-linear-gradient( #7ea2ba,#527d99 ) repeat scroll 0 0 #67497a !important; /* Opera 11.10+ */
+    /*background: -ms-linear-gradient( #7ea2ba,#527d99 ) repeat scroll 0 0 #67497a !important; /* IE10+ */
+    /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ea2ba', endColorstr='#527d99',GradientType=0 ); /* IE6-9 */   
+}
+
+
 
 .error
 {

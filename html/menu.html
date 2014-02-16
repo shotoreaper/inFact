@@ -9,8 +9,52 @@
         <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
         <script type="text/javascript" src="../phonegap.js"></script>
         <script type="text/javascript" src="../js/dB.js"></script>
-        <script>
-            openDb("infactdb","0.1","inFactDB",1000000);
-        </script>
+        <script type="text/javascript" src="../js/index.js"></script>
         <title>inFact App</title>
     </head>
+     <body>
+        <div id="menu" data-role="page">
+            <div data-role="header" data-theme="b"  data-position="fixed" data-add-back-btn="true">
+                <a onclick="exitFromApp()" data-icon="delete">Salir</a>
+                <h1>inFact</h1>
+            </div>
+            <br>
+             <div data-role="navbar" data-theme='a' class="custom-navbar">
+                <ul>
+                    <li><a href="" >
+                        <h3>FACTURAS</h3>
+                        <p>Genera tu factura</p>
+                    </a></li>
+        
+                    <li><a href="Usuario/index.html" >
+                        <h3>USUARIO</h3>
+                        <p>Modifica tus datos</p>
+                    </a></li>
+        
+                    <li><a href="" >
+                        <h3>CLIENTES</h3>
+                        <p>Mientras paguen...</p>
+                    </a></li>
+        
+        
+                    <li><a href="" >
+                        <h3>IVA</h3>
+                        <p>Nunca baja...</p>
+                    </a></li>
+        
+        
+                    <li><a href="" >
+                        <h3>IPRF</h3>
+                        <p>Para tocarnos los ****</p>
+                    </a></li>
+        
+        
+                    <li><a href="" >
+                        <h3>CONFIGURACIÓN</h3>
+                        <p>No apto para abueletes</p>
+                    </a></li>
+
+                </ul>
+            </div>
+    </body>
+</html>
