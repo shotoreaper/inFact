@@ -19,11 +19,12 @@ function isFirstLaunch()
     if(firstlaunch)
     {
         // Ya la hemos iniciado antes
-        console.log("Ya hemos iniciado la app antes");        
+        console.log("Ya hemos iniciado la app antes");                
     }else{
         // Es la primera vez que iniciamos la app
-        console.log("Primera vez que iniciamos");
-        $.mobile.changePage("html/register.html");
+        console.log("Primera vez que iniciamos");        
+        window.location = "html/register.html";
+        //$.mobile.changePage("html/register.html");
     }
     
 }
