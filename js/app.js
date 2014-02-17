@@ -1,6 +1,3 @@
-window.addEventListener('load', function () {
-    new FastClick(document.body);
-}, false);
 
 // The dynamically built HTML pages. In a real-life app, In a real-life app, use Handlerbar.js, Mustache.js or another template engine
 var homePage =
