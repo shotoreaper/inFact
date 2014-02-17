@@ -1,3 +1,4 @@
+/*
 * {
     -webkit-user-select: none;
 }
@@ -49,7 +50,7 @@ a {
 .header a:active {
     color: #fff;
     background-color: #0876b1;
-}
+}*/
 
 .page .scroller {
     position: absolute;
@@ -59,7 +60,7 @@ a {
     right: 0;
     bottom: 0;
 }
-
+/*
 .list {
     margin: 0;
     padding: 0;
@@ -94,4 +95,4 @@ a {
 
 .robot > p {
     clear: both;
-}
+}*/
