@@ -12,6 +12,9 @@ function onDeviceReady()
     isFirstLaunch();   
 }*/
 
+var slider = new PageSlider($("#container"));
+//$(window).on('hashchange', route);
+
 $( document ).ready(function() {
   // Handler for .ready() called.
     isFirstLaunch();   
@@ -27,14 +30,45 @@ function isFirstLaunch()
         // Ya la hemos iniciado antes
         console.log("Ya hemos iniciado la app antes");
         // Cargamos en login.html
+        //$('#container').load('html/login/index.html',function(){ $('#container').trigger('create'); });
+        $.get("html/login/index.html", function( my_var ) {
+            // my_var contains whatever that request returned
+           slider.slidePage($(my_var));
+        });
     }else{
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
-        $('#container').load('html/login/index.html',function(){ $('#container').trigger('create'); });
-        //window.location = "html/register.html";
-        //$.mobile.changePage("html/register.html");
+        //$('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
+        $.get("html/register/index.html", function( my_var ) {
+            // my_var contains whatever that request returned
+           slider.slidePage($(my_var));
+        });
+        //console.log(x);
     }
     
+}
+
+// Basic page routing
+function route(event) {
+    var page,
+        hash = window.location.hash;
+
+    if (hash === "#page1") {
+        page = merge(detailsPage, {img: "buildbot.jpg", name: "Build Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
+//        slider.slide($(page), "right");
+    } else if (hash === "#page2") {
+        page = merge(detailsPage, {img: "medibot.jpg", name: "Medi Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
+//        slider.slide($(page), "right");
+    } else if (hash === "#page3") {
+        page = merge(detailsPage, {img: "ripplebot.jpg", name: "Ripple Bot", description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."});
+//        slider.slide($(page), "right");
+    }
+    else {
+        page = homePage;
+//        slider.slide($(homePage), "left");
+    }
+
+    slider.slidePage($(page));
 }
 
 function loginUser()
