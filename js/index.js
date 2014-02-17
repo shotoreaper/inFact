@@ -32,6 +32,7 @@ function isFirstLaunch()
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
         $('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
+        //$.mobile.loadPage('html/register/index.html',function(){ $('#container').trigger('create'); });
     }
     
 }
