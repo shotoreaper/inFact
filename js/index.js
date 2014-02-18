@@ -3,17 +3,20 @@
    //navigator.notification.beep(1); 
 
 var samepass = false;
-
-//document.addEventListener("deviceready", onDeviceReady(), false);
 /*
+document.addEventListener("deviceready", onDeviceReady(), false);
+
 function onDeviceReady()
 {
     //loadPage("html/login/index.html");
-    isFirstLaunch();   
+    $('#container').load('html/login/index.html',function(){ $('#container').trigger('create'); });
 }
+
 */
+
+//var pageinMemory = new Array();
+
 $( document ).ready(function() {
-  // Handler for .ready() called.
     isFirstLaunch();   
 });
 
@@ -27,13 +30,34 @@ function isFirstLaunch()
         // Ya la hemos iniciado antes
         console.log("Ya hemos iniciado la app antes");
         // Cargamos en login.html
-        $('#container').load('html/login/index.html',function(){ $('#container').trigger('create'); });
+        $('#page1').load('html/login/index.html',function(){ $('#page1').trigger('create'); });
+        pageinMemory[0]="html/login/index.html";
     }else{
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
-        $('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
-        //$.mobile.loadPage('html/register/index.html',function(){ $('#container').trigger('create'); });
+        $('#page1').load('html/login/index.html',function(){ $('#page1').trigger('create'); });
+        pageinMemory[0]="html/login/index.html";
+        //$('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
     }
+    
+}
+
+function changePage(url,slide)
+{
+    var nextPage;
+    if ($.mobile.activePage.attr("id")=='page1')
+    {
+        nextPage = 'page2';   
+    }else{
+        nextPage = 'page1';
+    }
+   
+    $.get(url, function(data)
+    {
+        document.getElementById(nextPage).innerHTML=data;
+        $.mobile.changePage(  "#"+nextPage, { transition: slide, changeHash: true });   
+         $("#"+nextPage).trigger('create');
+    });    
     
 }
 

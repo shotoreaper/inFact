@@ -1,29 +1,41 @@
-<!doctype html>
-<html>
+<!DOCTYPE html> 
+<html> 
 <head>
-  <title>Multipage example</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
-  <script type="text/javascript" src="phonegap.js"></script>
-    <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="//code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+   <title> Barras de Navegacion</title> 
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
 </head>
+<script>
+function changeweb()
+{
+    var html = document.getElementById("page2").innerHTML;
+    console.log(html.length);
+    if(html.length<1)
+    {
+    // Introducimos el contenido en la nueva pagina
+    document.getElementById("page2").innerHTML="<div data-role='header'><h3>Page 2</h3></div><div data-role='content'><a href='#page1' data-transition='slide'>holaaaaa</a></div>"
+    // Cambiamos de pagina mediante slide
+    $.mobile.changePage( "#page2", { transition: "slideup", changeHash: false });
+    }else{
+    $.mobile.changePage( "#page2", { transition: "slideup", changeHash: false });
+    }
+    
+}    
+</script>
 <body>
-  <div data-role="page" id="page1">
+<div data-role="page" id="page1">
     <div data-role="header">
-      <h1>Page 1</h1>
+        <h3>
+            Page 1
+        </h3>
     </div>
-    <div role="main" class="ui-content">
-      <a href="#page2" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go To Page 2</a>
+    <div data-role="content">
+      <!-- components go here -->
+        <a onclick='changeweb();' data-transition='slide' >hola</a>
     </div>
-  </div>
-  <div data-role="page" id="page2">
-    <div data-role="header">
-      <h1>Page 2</h1>
-    </div>
-    <div role="main" class="ui-content">
-      <a href="#page1" data-rel="back" data-transition="slide" class="ui-btn ui-corner-all ui-btn-inline">Go Back To Page 1</a>
-    </div>
-  </div>
+</div>
+<div data-role="page" id="page2"></div>
 </body>
 </html>

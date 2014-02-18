@@ -3,10 +3,19 @@
     <h1>Iniciar sesión</h1>
 </div>
 <br>
-<div id="login-form">
+<div data-role="content" id="login-form">
     <label for="pass-id">Password:</label>
     <input type="password" name="pass" id="pass-id" value="" placeholder="Password" maxlength="9" />                
-    <a onclick="loginUser()" data-role="button">Login</a>
-    <a onclick="window.location = 'html/menu.html';" data-role="button">He olvidado mi contraseña</a> 
+    <a onclick="$.mobile.changePage( '#page2', { transition: 'slide', changeHash: false });" data-role="button">Login</a>
+    <a onclick="changePage('html/menu.html','slide',false);" data-role="button">He olvidado mi contraseña</a> 
     <label id="login-error" class="error"></label>
+</div>
+<div data-role="footer" data-position="fixed" data-theme="b">
+     <div data-role="navbar">
+        <ul>
+           <li><a href="#jq" data-icon="star" data-transition="pop">jQuery</a></li>
+           <li><a href="#jqui" data-icon="plus" data-transition="slideup"> jQuery UI </a></li>
+           <li><a href="#jqm" data-icon="grid" data-theme="e" data-transition="flip"> jQuery Mobile </a></li>
+        </ul>
+     </div><!-- /navbar -->
 </div>
