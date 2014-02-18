@@ -143,10 +143,10 @@ input {
     /*background: -ms-linear-gradient( #7ea2ba,#527d99 ) repeat scroll 0 0 #67497a !important; /* IE10+ */
     /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ea2ba', endColorstr='#527d99',GradientType=0 ); /* IE6-9 */   
 }
-
+/*
 .ui-page {
     -webkit-backface-visibility: hidden;
-}
+}*/
 
 .error
 {
