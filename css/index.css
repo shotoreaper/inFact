@@ -144,7 +144,9 @@ input {
     /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7ea2ba', endColorstr='#527d99',GradientType=0 ); /* IE6-9 */   
 }
 
-
+.ui-page {
+    -webkit-backface-visibility: hidden;
+}
 
 .error
 {
