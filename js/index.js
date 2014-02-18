@@ -31,12 +31,12 @@ function isFirstLaunch()
         console.log("Ya hemos iniciado la app antes");
         // Cargamos en login.html
         $('#page1').load('html/login/index.html',function(){ $('#page1').trigger('create'); });
-        pageinMemory[0]="html/login/index.html";
+        
     }else{
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
         $('#page1').load('html/login/index.html',function(){ $('#page1').trigger('create'); });
-        pageinMemory[0]="html/login/index.html";
+        
         //$('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
     }
     
@@ -55,8 +55,8 @@ function changePage(url,slide)
     $.get(url, function(data)
     {
         document.getElementById(nextPage).innerHTML=data;
-        $.mobile.changePage(  "#"+nextPage, { transition: slide, changeHash: true });   
-         $("#"+nextPage).trigger('create');
+        setTimeout(function(){$.mobile.changePage(  "#"+nextPage, { transition: slide, changeHash: false });   
+         $("#"+nextPage).trigger('create');},2000);
     });    
     
 }
