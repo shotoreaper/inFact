@@ -56,7 +56,7 @@ function changePage(url,slide)
     {
         document.getElementById(nextPage).innerHTML=data;
         setTimeout(function(){$.mobile.changePage(  "#"+nextPage, { transition: slide, changeHash: false });   
-         $("#"+nextPage).trigger('create');},2000);
+         $("#"+nextPage).trigger('create');},500);
     });    
     
 }
