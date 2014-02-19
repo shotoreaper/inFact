@@ -16,8 +16,8 @@ function onDeviceReady()
 
 //var pageinMemory = new Array();
 
-$('#nav li').bind('touchstart', function(){
-    $(this).addClass('select');
+$('#forget').bind('touchstart', function(){
+    changePage('html/menu.html','slide',false);
 }
 
 $( document ).ready(function() {
