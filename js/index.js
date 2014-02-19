@@ -16,9 +16,11 @@ function onDeviceReady()
 
 //var pageinMemory = new Array();
 
-$('#forget').bind('touchstart', function(){
-    changePage('html/menu.html','slide',false);
-}
+
+
+b.addEventListener('touchstart',function(e) {
+ changePage('html/menu.html','slide');
+});
 
 $( document ).ready(function() {
     isFirstLaunch();   
@@ -40,7 +42,7 @@ function isFirstLaunch()
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
         $('#page1').load('html/login/index.html',function(){ $('#page1').trigger('create'); });
-        
+        var b=document.getElementById('forget')
         //$('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
     }
     
