@@ -123,11 +123,11 @@ p{
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
-/*
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
-}*/
+}
 
 input {
     -webkit-user-select: auto !important;
