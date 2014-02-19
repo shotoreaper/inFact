@@ -17,10 +17,10 @@ function onDeviceReady()
 //var pageinMemory = new Array();
 
 
-
+/*
 b.addEventListener('touchstart',function(e) {
  changePage('html/menu.html','slide');
-});
+});*/
 
 $( document ).ready(function() {
     isFirstLaunch();   
