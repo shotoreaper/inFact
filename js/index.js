@@ -16,6 +16,10 @@ function onDeviceReady()
 
 //var pageinMemory = new Array();
 
+$('#nav li').bind('touchstart', function(){
+    $(this).addClass('select');
+}
+
 $( document ).ready(function() {
     isFirstLaunch();   
 });
