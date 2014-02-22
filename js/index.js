@@ -2,6 +2,8 @@
    //navigator.notification.alert("Hello");
    //navigator.notification.beep(1); 
 
+window.addEventListener('load', function(){new FastClick(document.body);}, false);
+
 var samepass = false;
 /*
 document.addEventListener("deviceready", onDeviceReady(), false);
