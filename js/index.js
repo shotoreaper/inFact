@@ -42,12 +42,8 @@ function isFirstLaunch()
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
         $('#page1').load('html/login/index.html',function(){ $('#page1').trigger('create'); });
-<<<<<<< HEAD
         //$('#page1').load('html/register/index.html',function(){ $('#page1').trigger('create'); });
-=======
-        var b=document.getElementById('forget')
         //$('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
->>>>>>> 2b3017fa908e04e9e768faa6bd30a2a1f44d7a7e
     }
     
 }
