@@ -2,7 +2,7 @@
     <h1>Registro de usuario</h1>                
 </div>
 <br>
-<div data-role="content" id="register-form">
+<div id="register-form">
     <label for="nombre-id">Nombre:</label>
     <input type="text" name="nombre" id="nombre-id" value="" placeholder="Nombre" />
     <label id="nombre-error" class="error"></label><br>
@@ -64,7 +64,7 @@
    <label for="checkbox-agree">I agree</label>
     </fieldset>
     
-    <a id="registerbutton" onclick="changePage('html/login/index.html','slide',false);"  data-role="button">Register</a>
+    <a id="registerbutton" onclick="registerUser()"  data-role="button">Register</a>
     <br>
     <label id="agree-error" class="error"></label>
 </div>

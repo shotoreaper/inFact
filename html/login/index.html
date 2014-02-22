@@ -6,8 +6,8 @@
 <div data-role="content" id="login-form">
     <label for="passw-id">Password:</label>
     <input type="password" name="pass" id="passw-id" value="" placeholder="Password" maxlength="9" />                
-    <a onclick="$.mobile.changePage( '#page2', { transition: 'slide', changeHash: false });" data-role="button">Login</a>
-    <a onclick="changePage('html/menu.html','slide',false);" data-role="button">He olvidado mi contraseña</a> 
+    <a onclick="loginUser();" data-role="button">Login</a>
+    <a onclick="changePage('html/menu.html','fade',false);" data-role="button">He olvidado mi contraseña</a> 
     <label id="login-error" class="error"></label>
 </div>
 <div data-role="footer" data-position="fixed" data-theme="b">

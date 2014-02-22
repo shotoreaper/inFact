@@ -36,13 +36,12 @@ function isFirstLaunch()
         // Es la primera vez que iniciamos la app
         console.log("Primera vez que iniciamos");        
         $('#page1').load('html/login/index.html',function(){ $('#page1').trigger('create'); });
-        
-        //$('#container').load('html/register/index.html',function(){ $('#container').trigger('create'); });
+        //$('#page1').load('html/register/index.html',function(){ $('#page1').trigger('create'); });
     }
     
 }
 
-function changePage(url,slide)
+function changePage(url,slide, rev)
 {
     var nextPage;
     if ($.mobile.activePage.attr("id")=='page1')
@@ -55,7 +54,7 @@ function changePage(url,slide)
     $.get(url, function(data)
     {
         document.getElementById(nextPage).innerHTML=data;
-        setTimeout(function(){$.mobile.changePage(  "#"+nextPage, { transition: slide, changeHash: false });   
+        setTimeout(function(){$.mobile.changePage(  "#"+nextPage, { transition: slide, changeHash: false, reverse: rev });   
          $("#"+nextPage).trigger('create');},50);
     });    
     
@@ -66,13 +65,14 @@ function loginUser()
     // Conectamos a la bbdd
     openDb("infactdb","0.1","inFactDB",1000000);
     //Comprobamos que la contraseña introducida es correcta
-    compararPass($('#pass-id').val());
+    compararPass($('#passw-id').val());
     
     setTimeout(function()
                {
                    if(samepass)
                    {
                        //Si lo es: vamos a menu.html
+                       changePage('html/menu.html','slide',false)
                        $('#container').load('html/menu.html',function(){ $('#container').trigger('create'); });
                    }else{
                        //Si no lo es: mostramos label "Error"
